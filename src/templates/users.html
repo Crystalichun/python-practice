@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回登录</title>
+    <style>
+        .center {
+            color:#FFB6C1;
+            text-align:center;
+            font-size: 40px;
+            margin: 30px;
+        }
+
+        .info {
+            text-align: center;
+        }
+
+        .user-info {
+            display: inline-block;
+        }
+
+        .add-user {
+            margin: 10px;
+        }
+
+        .delete {
+            background-color: #6495ED;
+            color: antiquewhite;
+        }
+
+        button {
+            background-color: #FFC0CB;
+            border-radius: 5px;
+            color: #5F9EA0;
+            font-size: 10px;
+        }
+
+        input {
+            height: 20px;
+        }
+
+        table, td, th {
+            font-size: 20px;
+            color: #9370DB;
+            border:1px solid #5F9EA0;
+        }
+
+        th {
+            background-color: #5F9EA0;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">用户信息列表</div>
+    <div class="info">
+        <div class="user-info">
+            <table border="1">
+            <tr>
+                <th>用户id</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>操作</th>
+                <th>操作</th>
+            </tr>
+            {% for user in users %}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.password}}</td>
+                    <td>
+                        <form method="POST" action="{{ url_for('modify_password') }}">
+                            <input type="hidden" value="{{user.id}}" name="id">
+                            <input type="text" placeholder="请输入新密码" name="new_password">
+                            <button type="submit">修改密码</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="POST" action="{{ url_for('delete_user') }}">
+                            <input type="hidden" value="{{user.id}}" name="id">
+                            <button type="submit" class="delete">删除</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+
+        <div class="add-user">
+            <form action="{{ url_for('add_user') }}" method="POST">
+                <input type="text" placeholder="请输入用户名" name="username">
+                <input type="text" placeholder="请输入密码" name="password">
+                <button type="submit">添加用户</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

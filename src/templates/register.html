@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <title>login page</title>
+    <style>
+    .center {
+	    color:#FFB6C1;
+        text-align:center;
+        font-size: 50px;
+        margin: 80px;
+    }
+
+    .feature {
+        text-align:center;
+    }
+
+    .register {
+        text-align: center;
+        margin: 10px;
+        color: #DB7093;
+        font-size: 20px;
+    }
+
+    .register-button {
+        text-align: center;
+        font-size: 15px;
+        width: 100px;
+        color: #FFF0F5;
+        height: 30px;
+        background-color: #5F9EA0
+    }
+
+    body {
+        background-color: #AFEEEE;
+    }
+
+    input {
+        height: 20px;
+    }
+    </style>
+</head>
+<body>
+  <div class="center">注册页面</div>
+
+  <form action="{{ url_for('register') }}" method="post">
+      <div class="feature">
+          <div class="register">
+              <span>用户名： </span>
+              <span><input id="username" type="text" placeholder="请输入用户名" name="username"></span>
+          </div>
+          <div class="register">
+              <span>密码： </span>
+              <span><input type="password" placeholder="请输入密码" name="password"></span>
+          </div>
+
+          <div class="register">
+              <span>请再次确认密码： </span>
+              <span><input type="password" placeholder="请确认密码" name="repeat_password"></span>
+          </div>
+
+          <button type="submit" class="register-button">注册</button>
+      </div>
+  </form>
+</body>
+</html>

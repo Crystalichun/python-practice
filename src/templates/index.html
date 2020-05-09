@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <title>首页</title>
+    <style>
+    .center {
+	    color: #008B8B;;
+        text-align:center;
+        font-size: 50px;
+        margin: 80px;
+    }
+
+    .feature {
+        text-align:center;
+    }
+
+    .login-button {
+        text-align: center;
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
+        color: #5F9EA0;
+        margin: 10px;
+    }
+
+    .register-button {
+        text-align: center;
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
+        color: #87CEFA;
+    }
+
+     body {
+        background-color:#d0e4fe;
+    }
+</style>
+</head>
+<body>
+
+  <div class="center">人员信息系统</div>
+
+
+  <div class="feature">
+      <div>
+          <form action="{{ url_for('login') }}">
+              <button type="submit" class="login-button">点击这里进行登录</button>
+          </form>
+      </div>
+      <div>
+          <form action="{{ url_for('register') }}">
+              <button type="submit" class="register-button">点击这里进行注册</button>
+          </form>
+      </div>
+  </div>
+
+</body>
+</html>

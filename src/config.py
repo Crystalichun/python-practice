@@ -1,0 +1,4 @@
+debug=True
+SQLALCHEMY_DATABASE_URI = 'sqlite:///../database/sign-on.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+SQLALCHEMY_COMMIT_TEARDOWN = True
